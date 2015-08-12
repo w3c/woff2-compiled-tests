@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>WOFF 2.0: Decoder Test Suite</title>
+		<style type="text/css">
+			@import "resources/index.css";
+		</style>
+	</head>
+	<body>
+		<h1>WOFF 2.0: Decoder Test Suite (8 tests)</h1>
+		<div class="mainNote">
+			The files used in these test can be obtained individually <a href="../xhtml1">here</a> or as a single zip file <a href="AuthoringToolTestFonts.zip">here</a>.
+		</div>
+		<div class="mainNote">
+			The tests in this suite represent SFNT data to be used for WOFF
+			conversion without any alteration or correction.
+		</div>
+
+		<h2 class="testCategory">Round-Trip Tests</h2>
+		<div class="testCategoryNote">
+			These files are provided as test cases for checking that the
+			result of converting to WOFF and back to SFNT results in a file
+			that is functionaly equivalent to the original SFNT.
+		</div>
+		<div class="testCase" id="roundtrip-offset-tables-001">
+			<div class="testCaseOverview">
+				<h3><a href="#roundtrip-offset-tables-001">roundtrip-offset-tables-001</a>: Font Collection Offset Tables</h3>
+				<p>TTF flavored font collection to verify that the output file has the same number of font entries in the font collection and that each font entry is represented by the same set of font tables as the input file.</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="roundtrip-offset-tables-001-shouldconvert">Yes</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRestoreCollectionOffsetTables">Documentation</a></p>
+			</div>
+		</div>
+		<div class="testCase" id="roundtrip-collection-dsig-001">
+			<div class="testCaseOverview">
+				<h3><a href="#roundtrip-collection-dsig-001">roundtrip-collection-dsig-001</a>: Font Collection With DSIG table</h3>
+				<p>TTF flavored font collection with DSIG table to verify that the output file has the same number of font entries in the font collection and that DSIG table entry was deleted. Check the font collection header format and if it's set to version 2.0 make sure that it was either modified to have the TTC Header fields {ulDsigTag, ulDsigLength, ulDsigOffset} set to zeros, or that TTC Header was converted to version 1.0.</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="roundtrip-collection-dsig-001-shouldconvert">Yes</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustFixCollection">Documentation</a></p>
+			</div>
+		</div>
+		<div class="testCase" id="roundtrip-collection-order-001">
+			<div class="testCaseOverview">
+				<h3><a href="#roundtrip-collection-order-001">roundtrip-collection-order-001</a>: Font Collection With Unsorted Fonts</h3>
+				<p>TTF flavored font collection with fonts not in alphabetical order. The encoder/decoder must keep the original font order in the collection.</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="roundtrip-collection-order-001-shouldconvert">Yes</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRestoreFontOrder">Documentation</a></p>
+			</div>
+		</div>
+
+		<h2 class="testCategory">OFF Validation Tests</h2>
+		<div class="testCategoryNote">
+			These files are provided as test cases for checking that the
+			result of converting WOFF back to SFNT results in a file
+			that confirms the OFF structure validity..
+		</div>
+		<div class="testCase" id="validation-loca-format-001">
+			<div class="testCaseOverview">
+				<h3><a href="#validation-loca-format-001">validation-loca-format-001</a>: Font With Short Loca and Composite Glyphs</h3>
+				<p>Valid TTF flavored WOFF with simple composite glyphs where the loca table uses the short format, to check loca reconstruction</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="validation-loca-format-001-shouldconvert">No</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRecordLocaOffsets">Documentation</a></p>
+			</div>
+		</div>
+		<div class="testCase" id="validation-loca-format-002">
+			<div class="testCaseOverview">
+				<h3><a href="#validation-loca-format-002">validation-loca-format-002</a>: Font With Long Loca and Composite Glyphs</h3>
+				<p>Valid TTF flavored WOFF with simple composite glyphs where the loca table uses the long format, to check loca reconstruction</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="validation-loca-format-002-shouldconvert">No</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRecordLocaOffsets">Documentation</a></p>
+			</div>
+		</div>
+		<div class="testCase" id="validation-checksum-001">
+			<div class="testCaseOverview">
+				<h3><a href="#validation-checksum-001">validation-checksum-001</a>: WOFF Checksum Calculation</h3>
+				<p>Valid CFF flavored WOFF file, the output file is put through an OFF validator to check the validity of table checksums.</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="validation-checksum-001-shouldconvert">No</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustCalculateCheckSum">Documentation</a></p>
+			</div>
+		</div>
+		<div class="testCase" id="validation-checksum-002">
+			<div class="testCaseOverview">
+				<h3><a href="#validation-checksum-002">validation-checksum-002</a>: WOFF Head Checksum Calculation</h3>
+				<p>Valid CFF flavored WOFF file, the output file is put through an OFF validator to check the validity of head table checkSumAdjustment.</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="validation-checksum-002-shouldconvert">No</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRecalculateHeadCheckSum">Documentation</a></p>
+			</div>
+		</div>
+		<div class="testCase" id="validation-bbox-001">
+			<div class="testCaseOverview">
+				<h3><a href="#validation-bbox-001">validation-bbox-001</a>: WOFF Empty Bbox Calculation</h3>
+				<p>Valid TTF flavored WOFF file, the output file is put through an OFF validator to check that the bounding box of empty glyphs is set to zeros.</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Round-Trip Test: <span id="validation-bbox-001-shouldconvert">No</span></p>
+					<p><a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustCalculateEmptyBBox">Documentation</a></p>
+			</div>
+		</div>
+	</body>
+</html>
