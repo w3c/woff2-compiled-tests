@@ -7,7 +7,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>WOFF 2.0: User Agent Test Suite (291 tests)</h1>
+		<h1>WOFF 2.0: User Agent Test Suite (293 tests)</h1>
 		<p class="installFontsNote">All of these tests require special fonts to be installed. The fonts can be obtained <a href="../../FontsToInstall">here</a>.</p>
 
 		<h2 class="testCategory">Valid WOFFs</h2>
@@ -173,15 +173,47 @@
 				</div>
 			</div>
 		</div>
-		<div class="testCase" id="datatypes-invalid-base128">
+		<div class="testCase" id="datatypes-invalid-base128-001">
 			<div class="testCaseOverview">
-				<h3><a href="#datatypes-invalid-base128">datatypes-invalid-base128</a>: Invalid UIntBase128 With Leading Zeros</h3>
+				<h3><a href="#datatypes-invalid-base128-001">datatypes-invalid-base128-001</a>: Invalid UIntBase128 With Leading Zeros</h3>
 				<p>Invalid TTF flavored WOFF that has UIntBase128 numbers with leading zeros</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
-					<p><a href="datatypes-invalid-base128.xht">Test</a></p>
-					<p><a href="datatypes-invalid-base128-ref.xht">Reference Rendering</a></p>
+					<p><a href="datatypes-invalid-base128-001.xht">Test</a></p>
+					<p><a href="datatypes-invalid-base128-001-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRejectInvalidBase128">conform-mustRejectInvalidBase128</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="datatypes-invalid-base128-002">
+			<div class="testCaseOverview">
+				<h3><a href="#datatypes-invalid-base128-002">datatypes-invalid-base128-002</a>: Invalid UIntBase128 That Exceeds 2<sup>32</sup>-1</h3>
+				<p>Invalid TTF flavored WOFF that has UIntBase128 numbers which exceed 2<sup>32</sup>-1</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="datatypes-invalid-base128-002.xht">Test</a></p>
+					<p><a href="datatypes-invalid-base128-002-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRejectInvalidBase128">conform-mustRejectInvalidBase128</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="datatypes-invalid-base128-003">
+			<div class="testCaseOverview">
+				<h3><a href="#datatypes-invalid-base128-003">datatypes-invalid-base128-003</a>: Invalid UIntBase128 Longer Than 5 Bytes</h3>
+				<p>Invalid TTF flavored WOFF that has UIntBase128 numbers longer than 5 bytes</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="datatypes-invalid-base128-003.xht">Test</a></p>
+					<p><a href="datatypes-invalid-base128-003-ref.xht">Reference Rendering</a></p>
 				</div>
 				<div class="testCaseExpectations">
 					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRejectInvalidBase128">conform-mustRejectInvalidBase128</a>)</p>
@@ -273,26 +305,10 @@
 		</div>
 
 		<h2 class="testCategory">WOFF Data Block Tests</h2>
-		<div class="testCase" id="blocks-extraneous-data-000">
-			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-000">blocks-extraneous-data-000</a>: Extraneous Data Between Header and Directory</h3>
-				<p>There are four null bytes between the header and the table directory.</p>
-			</div>
-			<div class="testCaseDetails">
-				<div class="testCasePages">
-					<p><a href="blocks-extraneous-data-000.xht">Test</a></p>
-					<p><a href="blocks-extraneous-data-000-ref.xht">Reference Rendering</a></p>
-				</div>
-				<div class="testCaseExpectations">
-					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-extraneous-reject">conform-extraneous-reject</a>)</p>
-					<p>Metadata Expectation: None</p>
-				</div>
-			</div>
-		</div>
 		<div class="testCase" id="blocks-extraneous-data-001">
 			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-001">blocks-extraneous-data-001</a>: Extraneous Data Between Directory and Table Data</h3>
-				<p>There are four null bytes between the table directory and the table data.</p>
+				<h3><a href="#blocks-extraneous-data-001">blocks-extraneous-data-001</a>: Extraneous Data Between Header and Directory</h3>
+				<p>There are four null bytes between the header and the table directory.</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
@@ -307,8 +323,8 @@
 		</div>
 		<div class="testCase" id="blocks-extraneous-data-002">
 			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-002">blocks-extraneous-data-002</a>: Extraneous Data After Table Data</h3>
-				<p>There are four null bytes after the table data block and there is no metadata or private data.</p>
+				<h3><a href="#blocks-extraneous-data-002">blocks-extraneous-data-002</a>: Extraneous Data Between Directory and Table Data</h3>
+				<p>There are four null bytes between the table directory and the table data.</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
@@ -323,8 +339,8 @@
 		</div>
 		<div class="testCase" id="blocks-extraneous-data-003">
 			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-003">blocks-extraneous-data-003</a>: Extraneous Data Between Table Data and Metadata</h3>
-				<p>There are four null bytes between the table data and the metadata.</p>
+				<h3><a href="#blocks-extraneous-data-003">blocks-extraneous-data-003</a>: Extraneous Data After Table Data</h3>
+				<p>There are four null bytes after the table data block and there is no metadata or private data.</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
@@ -339,8 +355,8 @@
 		</div>
 		<div class="testCase" id="blocks-extraneous-data-004">
 			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-004">blocks-extraneous-data-004</a>: Extraneous Data Between Table Data and Private Data</h3>
-				<p>There are four null bytes between the table data and the private data.</p>
+				<h3><a href="#blocks-extraneous-data-004">blocks-extraneous-data-004</a>: Extraneous Data Between Table Data and Metadata</h3>
+				<p>There are four null bytes between the table data and the metadata.</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
@@ -355,8 +371,8 @@
 		</div>
 		<div class="testCase" id="blocks-extraneous-data-005">
 			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-005">blocks-extraneous-data-005</a>: Extraneous Data Between Metdata and Private Data</h3>
-				<p>There are four null bytes between the metadata and the private data.</p>
+				<h3><a href="#blocks-extraneous-data-005">blocks-extraneous-data-005</a>: Extraneous Data Between Table Data and Private Data</h3>
+				<p>There are four null bytes between the table data and the private data.</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
@@ -371,8 +387,8 @@
 		</div>
 		<div class="testCase" id="blocks-extraneous-data-006">
 			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-006">blocks-extraneous-data-006</a>: Extraneous Data After Metadata</h3>
-				<p>There are four null bytes after the metadata and there is no private data.</p>
+				<h3><a href="#blocks-extraneous-data-006">blocks-extraneous-data-006</a>: Extraneous Data Between Metdata and Private Data</h3>
+				<p>There are four null bytes between the metadata and the private data.</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
@@ -387,13 +403,29 @@
 		</div>
 		<div class="testCase" id="blocks-extraneous-data-007">
 			<div class="testCaseOverview">
-				<h3><a href="#blocks-extraneous-data-007">blocks-extraneous-data-007</a>: Extraneous Data After Private Data</h3>
-				<p>There are four null bytes after the private data.</p>
+				<h3><a href="#blocks-extraneous-data-007">blocks-extraneous-data-007</a>: Extraneous Data After Metadata</h3>
+				<p>There are four null bytes after the metadata and there is no private data.</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
 					<p><a href="blocks-extraneous-data-007.xht">Test</a></p>
 					<p><a href="blocks-extraneous-data-007-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-extraneous-reject">conform-extraneous-reject</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="blocks-extraneous-data-008">
+			<div class="testCaseOverview">
+				<h3><a href="#blocks-extraneous-data-008">blocks-extraneous-data-008</a>: Extraneous Data After Private Data</h3>
+				<p>There are four null bytes after the private data.</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="blocks-extraneous-data-008.xht">Test</a></p>
+					<p><a href="blocks-extraneous-data-008-ref.xht">Reference Rendering</a></p>
 				</div>
 				<div class="testCaseExpectations">
 					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-extraneous-reject">conform-extraneous-reject</a>)</p>
@@ -451,15 +483,15 @@
 		</div>
 
 		<h2 class="testCategory">WOFF Table Directory Tests</h2>
-		<div class="testCase" id="directory-collections-mismatched-tables">
+		<div class="testCase" id="directory-mismatched-tables-001">
 			<div class="testCaseOverview">
-				<h3><a href="#directory-collections-mismatched-tables">directory-collections-mismatched-tables</a>: Font Collection With Mismatched Glyf/Loca Tables</h3>
+				<h3><a href="#directory-mismatched-tables-001">directory-mismatched-tables-001</a>: Font Collection With Mismatched Glyf/Loca Tables</h3>
 				<p>Invalid TTF flavored WOFF font collection with two pairs of mismatched glyf/loca tables</p>
 			</div>
 			<div class="testCaseDetails">
 				<div class="testCasePages">
-					<p><a href="directory-collections-mismatched-tables.xht">Test</a></p>
-					<p><a href="directory-collections-mismatched-tables-ref.xht">Reference Rendering</a></p>
+					<p><a href="directory-mismatched-tables-001.xht">Test</a></p>
+					<p><a href="directory-mismatched-tables-001-ref.xht">Reference Rendering</a></p>
 				</div>
 				<div class="testCaseExpectations">
 					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustCheckRejectMismatchedTables">conform-mustCheckRejectMismatchedTables</a>)</p>
