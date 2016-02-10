@@ -7,7 +7,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>WOFF 2.0: User Agent Test Suite (293 tests)</h1>
+		<h1>WOFF 2.0: User Agent Test Suite (299 tests)</h1>
 		<p class="installFontsNote">All of these tests require special fonts to be installed. The fonts can be obtained <a href="../../FontsToInstall">here</a>.</p>
 
 		<h2 class="testCategory">Valid WOFFs</h2>
@@ -705,6 +705,102 @@
 				</div>
 				<div class="testCaseExpectations">
 					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustRejectNonEmptyBBox">conform-mustRejectNonEmptyBBox</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="tabledata-transform-bad-flag-001">
+			<div class="testCaseOverview">
+				<h3><a href="#tabledata-transform-bad-flag-001">tabledata-transform-bad-flag-001</a>: Head Table With Tramsform Number 1</h3>
+				<p>Invalid CFF flavored WOFF with head table having transform version 1.</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="tabledata-transform-bad-flag-001.xht">Test</a></p>
+					<p><a href="tabledata-transform-bad-flag-001-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustBeRejected-FailTransform">conform-mustBeRejected-FailTransform</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="tabledata-transform-bad-flag-002">
+			<div class="testCaseOverview">
+				<h3><a href="#tabledata-transform-bad-flag-002">tabledata-transform-bad-flag-002</a>: Glyf Table With Tramsform Number 3</h3>
+				<p>Invalid TTF flavored WOFF with glyf table having transform version 3.</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="tabledata-transform-bad-flag-002.xht">Test</a></p>
+					<p><a href="tabledata-transform-bad-flag-002-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustBeRejected-FailTransform">conform-mustBeRejected-FailTransform</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="tabledata-transform-hmtx-001">
+			<div class="testCaseOverview">
+				<h3><a href="#tabledata-transform-hmtx-001">tabledata-transform-hmtx-001</a>: Transformed Hmtx Table</h3>
+				<p>Valid TTF flavored WOFF with transformed hmtx table.</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="tabledata-transform-hmtx-001.xht">Test</a></p>
+					<p><a href="tabledata-transform-hmtx-001-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Display (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustAcceptAllTransforms">conform-mustAcceptAllTransforms</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="tabledata-transform-hmtx-002">
+			<div class="testCaseOverview">
+				<h3><a href="#tabledata-transform-hmtx-002">tabledata-transform-hmtx-002</a>: Transformed Hmtx Table With Correct Flags</h3>
+				<p>Valid TTF flavored WOFF with transformed hmtx table and correct flags field.</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="tabledata-transform-hmtx-002.xht">Test</a></p>
+					<p><a href="tabledata-transform-hmtx-002-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Display (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustCheckLSBFlags">conform-mustCheckLSBFlags</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="tabledata-transform-hmtx-003">
+			<div class="testCaseOverview">
+				<h3><a href="#tabledata-transform-hmtx-003">tabledata-transform-hmtx-003</a>: Transformed Hmtx Table With Bad Flags 1</h3>
+				<p>Invalid TTF flavored WOFF with transformed hmtx table with non-zero reserved bits of the flags field.</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="tabledata-transform-hmtx-003.xht">Test</a></p>
+					<p><a href="tabledata-transform-hmtx-003-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustCheckLSBFlags">conform-mustCheckLSBFlags</a>)</p>
+					<p>Metadata Expectation: None</p>
+				</div>
+			</div>
+		</div>
+		<div class="testCase" id="tabledata-transform-hmtx-004">
+			<div class="testCaseOverview">
+				<h3><a href="#tabledata-transform-hmtx-004">tabledata-transform-hmtx-004</a>: Transformed Hmtx Table With Bad Flags 2</h3>
+				<p>Invalid TTF flavored WOFF with transformed hmtx table with all flags bits set to 0</p>
+			</div>
+			<div class="testCaseDetails">
+				<div class="testCasePages">
+					<p><a href="tabledata-transform-hmtx-004.xht">Test</a></p>
+					<p><a href="tabledata-transform-hmtx-004-ref.xht">Reference Rendering</a></p>
+				</div>
+				<div class="testCaseExpectations">
+					<p>SFNT Expectation: Reject (<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustCheckLSBFlags">conform-mustCheckLSBFlags</a>)</p>
 					<p>Metadata Expectation: None</p>
 				</div>
 			</div>
