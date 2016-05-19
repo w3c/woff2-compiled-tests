@@ -7,7 +7,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>WOFF 2.0: Format Test Suite (298 tests)</h1>
+		<h1>WOFF 2.0: Format Test Suite (299 tests)</h1>
 		<div class="mainNote">
 			The files used in these test can be obtained individually <a href="../xhtml1">here</a> or as a single zip file <a href="FormatTestFonts.zip">here</a>.
 		</div>
@@ -644,6 +644,18 @@
 					<p>Valid: <span id="tabledata-glyf-composite-bbox-001-validity">Yes</span></p>
 					<p>
 <a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustHaveCompositeBBox">conform-mustHaveCompositeBBox</a> 
+</p>
+			</div>
+		</div>
+		<div class="testCase" id="tabledata-transform-hmtx-001">
+			<div class="testCaseOverview">
+				<h3><a href="#tabledata-transform-hmtx-001">tabledata-transform-hmtx-001</a>: Transformed Hmtx Table With Bad Flags 1</h3>
+				<p>Invalid TTF flavored WOFF with transformed hmtx table with non-zero reserved bits of the flags field.</p>
+			</div>
+			<div class="testCaseDetails">
+					<p>Valid: <span id="tabledata-transform-hmtx-001-validity">No</span></p>
+					<p>
+<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustReconstructLSBs">conform-mustReconstructLSBs</a> 
 </p>
 			</div>
 		</div>
