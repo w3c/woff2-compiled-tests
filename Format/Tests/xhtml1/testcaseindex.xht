@@ -7,7 +7,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>WOFF 2.0: Format Test Suite (299 tests)</h1>
+		<h1>WOFF 2.0: Format Test Suite (293 tests)</h1>
 		<div class="mainNote">
 			The files used in these test can be obtained individually <a href="../xhtml1">here</a> or as a single zip file <a href="FormatTestFonts.zip">here</a>.
 		</div>
@@ -182,42 +182,6 @@
 					<p>Valid: <span id="header-numTables-001-validity">No</span></p>
 					<p>
 <a href="http://dev.w3.org/webfonts/WOFF2/spec/#woff20Header">woff20Header</a> 
-</p>
-			</div>
-		</div>
-		<div class="testCase" id="header-totalSfntSize-001">
-			<div class="testCaseOverview">
-				<h3><a href="#header-totalSfntSize-001">header-totalSfntSize-001</a>: Header Total SFNT Size Not a Multiple of 4</h3>
-				<p>The totalSfntSize field contains a value that is missing padding bytes between two tables.</p>
-			</div>
-			<div class="testCaseDetails">
-					<p>Valid: <span id="header-totalSfntSize-001-validity">No</span></p>
-					<p>
-<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-totalsize-longword">conform-totalsize-longword</a> 
-</p>
-			</div>
-		</div>
-		<div class="testCase" id="header-totalSfntSize-002">
-			<div class="testCaseOverview">
-				<h3><a href="#header-totalSfntSize-002">header-totalSfntSize-002</a>: Header Total SFNT Size Too Long</h3>
-				<p>The totalSfntSize field contains a value that is is four bytes too long.</p>
-			</div>
-			<div class="testCaseDetails">
-					<p>Valid: <span id="header-totalSfntSize-002-validity">No</span></p>
-					<p>
-<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-totalsize-longword">conform-totalsize-longword</a> 
-</p>
-			</div>
-		</div>
-		<div class="testCase" id="header-totalSfntSize-003">
-			<div class="testCaseOverview">
-				<h3><a href="#header-totalSfntSize-003">header-totalSfntSize-003</a>: Header Total SFNT Size Too Short</h3>
-				<p>The totalSfntSize field contains a value that is is four bytes too short.</p>
-			</div>
-			<div class="testCaseDetails">
-					<p>Valid: <span id="header-totalSfntSize-003-validity">No</span></p>
-					<p>
-<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-totalsize-longword">conform-totalsize-longword</a> 
 </p>
 			</div>
 		</div>
@@ -563,18 +527,6 @@
 </p>
 			</div>
 		</div>
-		<div class="testCase" id="tabledata-no-transform-001">
-			<div class="testCaseOverview">
-				<h3><a href="#tabledata-no-transform-001">tabledata-no-transform-001</a>: Font Table Data Untransformed Tables</h3>
-				<p>The glyf and loca tables are not transformed.</p>
-			</div>
-			<div class="testCaseDetails">
-					<p>Valid: <span id="tabledata-no-transform-001-validity">No</span></p>
-					<p>
-<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustTransformTables">conform-mustTransformTables</a> 
-</p>
-			</div>
-		</div>
 		<div class="testCase" id="tabledata-non-zero-loca-001">
 			<div class="testCaseOverview">
 				<h3><a href="#tabledata-non-zero-loca-001">tabledata-non-zero-loca-001</a>: Font Table Data Loca Is Not Zero</h3>
@@ -623,18 +575,6 @@
 </p>
 			</div>
 		</div>
-		<div class="testCase" id="tabledata-transform-tables-001">
-			<div class="testCaseOverview">
-				<h3><a href="#tabledata-transform-tables-001">tabledata-transform-tables-001</a>: WOFF With Transformed Tables</h3>
-				<p>Valid TTF flavored WOFF with transformed glyf and loca tables</p>
-			</div>
-			<div class="testCaseDetails">
-					<p>Valid: <span id="tabledata-transform-tables-001-validity">Yes</span></p>
-					<p>
-<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustTransformTables">conform-mustTransformTables</a> 
-</p>
-			</div>
-		</div>
 		<div class="testCase" id="tabledata-glyf-composite-bbox-001">
 			<div class="testCaseOverview">
 				<h3><a href="#tabledata-glyf-composite-bbox-001">tabledata-glyf-composite-bbox-001</a>: Composite Glyph Without Bounding Box</h3>
@@ -644,18 +584,6 @@
 					<p>Valid: <span id="tabledata-glyf-composite-bbox-001-validity">Yes</span></p>
 					<p>
 <a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustHaveCompositeBBox">conform-mustHaveCompositeBBox</a> 
-</p>
-			</div>
-		</div>
-		<div class="testCase" id="tabledata-transform-hmtx-001">
-			<div class="testCaseOverview">
-				<h3><a href="#tabledata-transform-hmtx-001">tabledata-transform-hmtx-001</a>: Transformed Hmtx Table With Bad Flags 1</h3>
-				<p>Invalid TTF flavored WOFF with transformed hmtx table with non-zero reserved bits of the flags field.</p>
-			</div>
-			<div class="testCaseDetails">
-					<p>Valid: <span id="tabledata-transform-hmtx-001-validity">No</span></p>
-					<p>
-<a href="http://dev.w3.org/webfonts/WOFF2/spec/#conform-mustReconstructLSBs">conform-mustReconstructLSBs</a> 
 </p>
 			</div>
 		</div>

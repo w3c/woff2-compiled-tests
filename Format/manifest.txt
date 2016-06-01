@@ -12,9 +12,6 @@ header-flavor-002		Header Flavor Incorrectly Set to OTTO		#woff20Header	DUMMY		T
 header-length-001		Header Length Too Short		#woff20Header	DUMMY		The length field contains a value that is four bytes shorter than the actual data.
 header-length-002		Header Length Too Long		#woff20Header	DUMMY		The length field contains a value that is four bytes longer than the actual data.
 header-numTables-001		Header Number of Tables Set to Zero		#woff20Header	DUMMY		The header contains 0 in the numTables field. A table directory and table data are present.
-header-totalSfntSize-001		Header Total SFNT Size Not a Multiple of 4		#conform-totalsize-longword	DUMMY		The totalSfntSize field contains a value that is missing padding bytes between two tables.
-header-totalSfntSize-002		Header Total SFNT Size Too Long		#conform-totalsize-longword	DUMMY		The totalSfntSize field contains a value that is is four bytes too long.
-header-totalSfntSize-003		Header Total SFNT Size Too Short		#conform-totalsize-longword	DUMMY		The totalSfntSize field contains a value that is is four bytes too short.
 header-reserved-001		Header Reserved Invalid Value		#conform-mustSetReserved2Zero	DUMMY		The reserved field contains 1.
 blocks-extraneous-data-001		Extraneous Data Between Directory and Table Data		#conform-noextraneous	DUMMY		There are four null bytes between the table directory and the table data.
 blocks-extraneous-data-002		Extraneous Data After Table Data		#conform-noextraneous	DUMMY		There are four null bytes after the table data block and there is no metadata or private data.
@@ -43,14 +40,11 @@ tabledata-decompressed-length-001		Font Table Data Decompressed Length Less Than
 tabledata-decompressed-length-002		Font Table Data Decompressed Length Greater Than Original Length		#conform-mustMatchUncompressedSize	DUMMY		The original length of the first table in the directory is decreased by 1, making the decompressed length of the table data greater than the sum of original table lengths.
 tabledata-decompressed-length-003		Font Table Data Decompressed Length Less Than Transformed Length		#conform-mustMatchUncompressedSize	DUMMY		The transformed length of the glyf table in the directory is increased by 1, making the decompressed length of the table data less than the sum of transformed table lengths.
 tabledata-decompressed-length-004		Font Table Data Decompressed Length Greater Than Transformed Length		#conform-mustMatchUncompressedSize	DUMMY		The transformed length of the glyf table in the directory is decreased by 1, making the decompressed length of the table data greater than the sum of transformed table lengths.
-tabledata-no-transform-001		Font Table Data Untransformed Tables		#conform-mustTransformTables	DUMMY		The glyf and loca tables are not transformed.
 tabledata-non-zero-loca-001		Font Table Data Loca Is Not Zero		#conform-transformedLocaMustBeZero	DUMMY		The transformed loca table contains 4 zero bytes and its transformLength is 4.
 tabledata-loca-size-001		Loca Table With Long Format		#conform-OriginalLocaSize	DUMMY		A valid TTF flavoured font where the loca table uses the long format.
 tabledata-loca-size-002		Loca Table With Short Format		#conform-OriginalLocaSize	DUMMY		A valid TTF flavoured font where the loca table uses the short format.
 tabledata-loca-size-003		No Loca Table		#conform-OriginalLocaSize	DUMMY		A valid CFF flavoured font which naturally have no loca table.
-tabledata-transform-tables-001		WOFF With Transformed Tables		#conform-mustTransformTables	DUMMY		Valid TTF flavored WOFF with transformed glyf and loca tables
 tabledata-glyf-composite-bbox-001		Composite Glyph Without Bounding Box		#conform-mustHaveCompositeBBox	DUMMY		Valid TTF flavored WOFF with composite glyphs
-tabledata-transform-hmtx-001		Transformed Hmtx Table With Bad Flags 1		#conform-mustReconstructLSBs	DUMMY		Invalid TTF flavored WOFF with transformed hmtx table with non-zero reserved bits of the flags field.
 metadata-padding-001		Padding Between Metadata and Private Data is Non-Null		#conform-private-padalign	DUMMY		Metadata is padded with \01 instead of \00.
 metadata-compression-001		Metadata No Compression		#conform-metadata-alwayscompress	DUMMY		The metadata is stored in an uncompressed state and therefore does not have the proper compression format.
 metadata-compression-002		Metadata Invalid Compression		#conform-mustBeBrotliCompressedMetadata	DUMMY		The metadata is compressed with Gzip and therefore does not have the proper compression format.
