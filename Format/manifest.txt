@@ -20,30 +20,33 @@ blocks-extraneous-data-004		Extraneous Data Between Table Data and Private Data	
 blocks-extraneous-data-005		Extraneous Data Between Metdata and Private Data		#conform-noextraneous	DUMMY		There are four null bytes between the metadata and the private data.
 blocks-extraneous-data-006		Extraneous Data After Metadata		#conform-noextraneous	DUMMY		There are four null bytes after the metadata and there is no private data.
 blocks-extraneous-data-007		Extraneous Data After Private Data		#conform-noextraneous	DUMMY		There are four null bytes after the private data.
-blocks-overlap-001		Metadata Overlaps Table Data		#conform-overlap-reject	DUMMY		The metadata offset is four bytes before the end of the table data.
-blocks-overlap-002		Private Data Overlaps Table Data		#conform-overlap-reject	DUMMY		The private data offset is four bytes before the end of the table data.
-blocks-overlap-003		Private Data Overlaps Metadata		#conform-overlap-reject	DUMMY		The private data offset is four bytes before the end of the metadata.
-blocks-metadata-absent-001		Metadata Length Not Set to Zero		#conform-overlap-reject	DUMMY		The metadata length is set to one but the offset is zero.
 blocks-metadata-absent-002		Metadata Offset Not Set to Zero		#conform-metadata-afterfonttable	DUMMY		The metadata length is set to zero but the offset is set to the end of the file.
-blocks-private-absent-001		Private Data Length Not Set to Zero		#conform-overlap-reject	DUMMY		The private data length is set to one but the offset is zero.
-blocks-private-absent-002		Private Data Offset Not Set to Zero		#conform-overlap-reject	DUMMY		The private data length is set to zero but the offset is set to the end of the file.
 blocks-metadata-padding-001		Metadata Has Unnecessary Padding		#conform-metadata-noprivatepad	DUMMY		The metadata block is padded to a four-byte boundary but there is no private data.
+blocks-metadata-padding-002		Metadata Has No Padding		#conform-metadata-noprivatepad	DUMMY		The metadata block is not padded and there is no private data.
+blocks-metadata-padding-003		Metadata Has Correct Padding		#conform-metadata-noprivatepad	DUMMY		The metadata block is padded to a four-byte boundary and there is private data.
+blocks-metadata-padding-004		Metadata Beginning Has No Padding		#conform-metadata-padalign	DUMMY		The beginning of the metadata block is not padded.
 blocks-ordering-003		Metadata After Private Data		#conform-metadata-afterfonttable	DUMMY		The metadata block is stored after the private data block.
 blocks-ordering-004		Private Data Before Metadata		#conform-private-last	DUMMY		The private data block is stored before the metadata block.
 blocks-private-001		Private Data Does Not Begin of 4-Byte Boundary		#conform-private-padalign	DUMMY		The private data does not begin on a four byte boundary because the metadata is not padded.
 blocks-private-002		Data After Private Data		#conform-private-end	DUMMY		The private data does not correspond to the end of the WOFF2 file because there are 4 null bytes after it.
 directory-table-order-001		WOFF2 With Correct Table Order		#conform-tableOrdering	DUMMY		A valid WOFF2 font with tables ordered correctly in the table directory
 directory-table-order-002		WOFF2 With Wrong Table Order		#conform-tableOrdering	DUMMY		An invalid WOFF2 font with loca before glyf in the table directory
-tabledata-extraneous-data-001		Extraneous Data Betwen Table Data		#conform-mustRejectExtraData	DUMMY		There is extraneous data before the last table.
+tabledata-extraneous-data-001		Extraneous Data Betwen Table Data		#conform-noExtraData	DUMMY		There is extraneous data before the last table.
 tabledata-brotli-001		Font Table Data Invalid Compressed Data		#conform-mustUseBrotli-FontData	DUMMY		Font table data is compressed with zlib instead of Brotli.
 tabledata-decompressed-length-001		Font Table Data Decompressed Length Less Than Original Length		#conform-mustMatchUncompressedSize	DUMMY		The original length of the first table in the directory is increased by 1, making the decompressed length of the table data less than the sum of original table lengths.
 tabledata-decompressed-length-002		Font Table Data Decompressed Length Greater Than Original Length		#conform-mustMatchUncompressedSize	DUMMY		The original length of the first table in the directory is decreased by 1, making the decompressed length of the table data greater than the sum of original table lengths.
 tabledata-decompressed-length-003		Font Table Data Decompressed Length Less Than Transformed Length		#conform-mustMatchUncompressedSize	DUMMY		The transformed length of the glyf table in the directory is increased by 1, making the decompressed length of the table data less than the sum of transformed table lengths.
 tabledata-decompressed-length-004		Font Table Data Decompressed Length Greater Than Transformed Length		#conform-mustMatchUncompressedSize	DUMMY		The transformed length of the glyf table in the directory is decreased by 1, making the decompressed length of the table data greater than the sum of transformed table lengths.
-tabledata-non-zero-loca-001		Font Table Data Loca Is Not Zero		#conform-transformedLocaMustBeZero	DUMMY		The transformed loca table contains 4 zero bytes and its transformLength is 4.
+tabledata-transform-length-001		Font Table Data Loca Is Not Zero		#conform-transformedLocaMustBeZero	DUMMY		The transformed loca table contains 4 zero bytes and its transformLength is 4.
+tabledata-transform-length-002		Transform Length Is Not Set		#conform-mustIncludeTransformLength	DUMMY		The transformed tables does not have transformLength set.
 tabledata-loca-size-001		Loca Table With Long Format		#conform-OriginalLocaSize	DUMMY		A valid TTF flavoured font where the loca table uses the long format.
 tabledata-loca-size-002		Loca Table With Short Format		#conform-OriginalLocaSize	DUMMY		A valid TTF flavoured font where the loca table uses the short format.
 tabledata-loca-size-003		No Loca Table		#conform-OriginalLocaSize	DUMMY		A valid CFF flavoured font which naturally have no loca table.
+tabledata-hmtx-transform-001		Transformed Hmtx Table		#conform-transformFlagsMustBeSet	DUMMY		Valid TTF flavored WOFF with transformed hmtx table.
+tabledata-hmtx-transform-002		Transformed Hmtx Table With 0 Flags		#conform-transformFlagsMustBeSet	DUMMY		Invalid TTF flavored WOFF with transformed hmtx table that has 0 flags (null transform).
+tabledata-hmtx-transform-003		Transformed Hmtx Table With All Flags Set		#conform-reservedFlagsMustBeZero	DUMMY		Invalid TTF flavored WOFF with transformed hmtx table that has all flags bits (including reserved bits) set.
+tabledata-transform-glyf-loca-001		Transformed Glyf With Unransformed Loca		#conform-transformedLocaMustAccompanyGlyf	DUMMY		The glyf table is transformed while loca table is not.
+tabledata-transform-glyf-loca-002		Transformed Loca With Unransformed Glyf		#conform-transformedLocaMustAccompanyGlyf	DUMMY		The glyf table is not transformed while loca table is transformed.
 tabledata-glyf-composite-bbox-001		Composite Glyph Without Bounding Box		#conform-mustHaveCompositeBBox	DUMMY		Valid TTF flavored WOFF with composite glyphs
 metadata-padding-001		Padding Between Metadata and Private Data is Non-Null		#conform-private-padalign	DUMMY		Metadata is padded with \01 instead of \00.
 metadata-compression-001		Metadata No Compression		#conform-metadata-alwayscompress	DUMMY		The metadata is stored in an uncompressed state and therefore does not have the proper compression format.
